@@ -6,7 +6,7 @@ class Accommodation{
     public $accommodation_id;
     public $accommodation_name;
     public $accommodation_description;
-    public $accomodation_type;
+    public $accommodation_type;
     public $accommodation_price;
     public $accommodation_address;
     public $contact_info;
