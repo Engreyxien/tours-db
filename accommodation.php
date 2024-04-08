@@ -73,11 +73,11 @@ if ($method === "GET") {
     "message" => "Data updated"
   ], JSON_PRETTY_PRINT);
 } else if ($method === "DELETE") {
-  $query = "DELETE from tasks WHERE task_id = :task_id";
+  $query = "DELETE from accommodation WHERE accommodation_id = :accommodation_id";
   $db->ready($query, [
-    "task_id" => $_GET["task_id"]
+    "accommodation_id" => $_GET["accommodation_id"]
   ]);
   echo json_encode([
-    "message" => "Data deleted"
+    "message" => "Accommodation was removed"
   ], JSON_PRETTY_PRINT);
 }

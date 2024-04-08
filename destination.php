@@ -61,11 +61,11 @@ if ($method === "GET") {
     "message" => "Destination Added"
   ], JSON_PRETTY_PRINT);
 } else if ($method === "DELETE") {
-  $query = "DELETE from tasks WHERE task_id = :task_id";
+  $query = "DELETE from destination WHERE destination_id = :destination_id";
   $db->ready($query, [
-    "task_id" => $_GET["task_id"]
+    "destination_id" => $_GET["destination_id"]
   ]);
   echo json_encode([
-    "message" => "Data deleted"
+    "message" => "Destination deleted"
   ], JSON_PRETTY_PRINT);
 }
