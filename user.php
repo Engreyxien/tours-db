@@ -30,12 +30,14 @@ if ($method === 'GET') {
     }
 } else if ($method === 'POST'){
     $_POST = json_decode(file_get_contents('php://input'), true);
-    $query = "INSERT INTO users (username, password, email_address, fullname, country_id) VALUES ( :username, :password, :email_address, :fullname, :country_id)";
-    $db->ready($query, ['username' => $_POST['username'], 'password' => $_POST['password'], 'email_address' => $_POST['email_address'], 'fullname' => $_POST['fullname'], 'country_id' => $_POST['country_id']]);
+    $query = "INSERT INTO users (username, password, email_address, fullname, country_name) VALUES ( :username, :password, :email_address, :fullname, :country_name)";
+    $db->ready($query, ['username' => $_POST['username'], 'password' => $_POST['password'], 'email_address' => $_POST['email_address'], 'fullname' => $_POST['fullname'], 'country_name' => $_POST['country_name']]);
     $username = $_POST['username'];
     $password = $_POST['password'];
     $email_address = $_POST['email_address'];
     $fullname = $_POST['fullname'];
-    $country_id = $_POST['country_id'];
-    echo json_encode(["message" => "User created successfully.", "username" => $username, "password" => $password, "email_address" => $email_address, "fullname" => $fullname, "country_id" => $country_id], JSON_PRETTY_PRINT);
+    $country_id = $_POST['country_name'];
+    $response = ["message" => "User created successfully.", "username" => $username, "password" => $password, "email_address" => $email_address, "fullname" => $fullname, "country_name" => $country_id];
+    header('Content-Type: application/json');
+    echo json_encode($response, JSON_PRETTY_PRINT);
 }

@@ -10,7 +10,7 @@ function dbConnect()
     $conn = new mysqli($dbServer, $username, $password, $dbName);
 
     if ($conn->ping()) {
-        // printf ("Our connection is ok!\n");
+         printf ("Our connection is ok!\n");
     } else {
         printf("Error: %s\n", $conn->error);
     }
@@ -18,7 +18,7 @@ function dbConnect()
     if ($conn->connect_error) {
         die("Error: " . $conn->connect_error);
     }
-    // echo '<h1 style="color: green;">Connected to DB!</h1>';
+     echo '<h1 style="color: green;">Connected to DB!</h1>';
 }
 
 function redirect_to($location)

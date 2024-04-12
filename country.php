@@ -7,7 +7,6 @@ class Country{
     public $country_name;
     public $country_description;
 }
-
 $db = new Connection();
 
 $stmt = $db->connection->prepare("SELECT * FROM country");
