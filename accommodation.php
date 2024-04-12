@@ -55,23 +55,23 @@ if ($method === "GET") {
     "message" => "Data inserted"
   ], JSON_PRETTY_PRINT);
 } else if ($method === "PUT") {
-  $_PUT = json_decode(file_get_contents('php://input'), true);
-  $query = "UPDATE accommodation SET accommodation_name = :accommodation_name, accommodation_description = :accommodation_description, accommodation_type = :accommodation_type, accommodation_price = :accommodation_price, contact_info = :contact_info, destination_id = :destination_id, citymun_id = :citymun_id, 
-  WHERE accommodation_id = :accommodation_id";
-  $db->ready($query, [
-    "accommodation_name" => $_PUT["accommodation_name"],
-    "accommodation_description" => $_PUT["accommodation_description"],
-    "accommodation_type" => $_PUT["accommodation_type"],
-    "accommodation_price" => $_PUT["accommodation_price"],
-    "accommodation_address" => $_PUT["accommodation_address"],
-    "contact_info" => $_PUT["contact_info"],
-    "destination_id" => $_PUT["destination_id"],
-    "citymun_id" => $_PUT["citymun_id"],
-    "accommodation_id" => $_GET["accommodation_id"],
-  ]);
-  echo json_encode([
-    "message" => "Data updated"
-  ], JSON_PRETTY_PRINT);
+    $_PUT = json_decode(file_get_contents('php://input'), true);
+    $query = "UPDATE accommodation SET accommodation_name = :accommodation_name, accommodation_description = :accommodation_description, accommodation_type = :accommodation_type, accommodation_price = :accommodation_price, contact_info = :contact_info, destination_id = :destination_id, citymun_id = :citymun_id 
+    WHERE accommodation_id = :accommodation_id";
+    $db->ready($query, [
+      "accommodation_name" => $_PUT["accommodation_name"],
+      "accommodation_description" => $_PUT["accommodation_description"],
+      "accommodation_type" => $_PUT["accommodation_type"],
+      "accommodation_price" => $_PUT["accommodation_price"],
+      "accommodation_address" => $_PUT["accommodation_address"],
+      "contact_info" => $_PUT["contact_info"],
+      "destination_id" => $_PUT["destination_id"],
+      "citymun_id" => $_PUT["citymun_id"],
+      "accommodation_id" => $_GET["accommodation_id"],
+    ]);
+    echo json_encode([
+        "message" => "Accommodation Updated"
+    ], JSON_PRETTY_PRINT);
 } else if ($method === "DELETE") {
   $query = "DELETE from accommodation WHERE accommodation_id = :accommodation_id";
   $db->ready($query, [
